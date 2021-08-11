@@ -101,6 +101,7 @@ namespace SealBannedIPDatabase
         {
             // Save list
             StringBuilder sb = new StringBuilder();
+            int before = _db.Entries.Length;
             foreach (string line in txtAEntriesSave.Lines) 
             {
                 string[] data = line.Split(" ");
@@ -109,7 +110,9 @@ namespace SealBannedIPDatabase
                     sb.Append(err);
                 }
             }
+            int after = _db.Entries.Length - before;
             txtAMessage.Text = sb.ToString();
+            txtAMessage.Text += "New entries: " + after;
         }
 
         private void button1_Click(object sender, EventArgs e)
