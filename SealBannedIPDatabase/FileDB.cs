@@ -27,7 +27,7 @@ namespace SealBannedIPDatabase
 
         public string writeEntry(string count, string ip) 
         {
-            string err = "";
+            string err = string.Empty;
             try
             {
                 int number = -1;
