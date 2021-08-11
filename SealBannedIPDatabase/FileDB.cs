@@ -39,7 +39,10 @@ namespace SealBannedIPDatabase
                         string[] data = dbstrcontent[index].Split(" ");
                         int _n = Int32.Parse(data[0]);
                         string _ip = data[1];
-                        _n += number;
+                        if (number > _n) 
+                        {
+                            _n = number;
+                        }
                         dbstrcontent[index] = _n + " " + _ip;
                     }
                     else
