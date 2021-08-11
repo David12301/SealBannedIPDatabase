@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using AutoUpdaterDotNET;
 
 namespace SealBannedIPDatabase
 {
@@ -60,6 +61,20 @@ namespace SealBannedIPDatabase
         {
             try
             {
+                AutoUpdater.Mandatory = true;
+                AutoUpdater.UpdateMode = Mode.Forced;
+                AutoUpdater.DownloadPath = Environment.CurrentDirectory;
+                var currentDirectory = new DirectoryInfo(Environment.CurrentDirectory);
+                AutoUpdater.UpdateFormSize = new System.Drawing.Size(800, 600);
+                if (currentDirectory.Parent != null)
+                {
+                    AutoUpdater.InstallationPath = currentDirectory.FullName;
+                }
+
+
+                AutoUpdater.Start("https://raw.githubusercontent.com/David12301/SealBannedIPDatabase/master/config.xml");
+
+
                 _db = new FileDB();
             }
             catch (Exception ex) 
