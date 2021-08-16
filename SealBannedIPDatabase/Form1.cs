@@ -32,9 +32,13 @@ namespace SealBannedIPDatabase
 
         private void TabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1) 
+            if (tabControl1.SelectedIndex == 1)
             {
                 ListAllData();
+            }
+            else if (tabControl1.SelectedIndex == 2) 
+            {
+                ListRecent();
             }
         }
 
@@ -46,6 +50,26 @@ namespace SealBannedIPDatabase
                 string line = _db.Entries[i];
                 addLineToGrid(line);
             }
+
+        }
+
+        private void ListRecent() 
+        {
+            dataGridView2.Rows.Clear();
+            for (int i = 0; i < _db.Recent.Count; i++)
+            {
+                string line = _db.Recent[i];
+                addLineToGridRecent(line);
+            }
+        }
+
+        private void addLineToGridRecent(string line)
+        {
+            string[] data = line.Split(" ");
+            string count = data[0];
+            string ip = data[1];
+            object[] row = { count, ip };
+            dataGridView2.Rows.Add(row);
         }
 
         private void addLineToGrid(string line) 
@@ -111,6 +135,7 @@ namespace SealBannedIPDatabase
                 }
             }
             int after = _db.Entries.Length - before;
+            txtAMessage.Text = "";
             txtAMessage.Text = sb.ToString();
             txtAMessage.Text += "New entries: " + after;
         }

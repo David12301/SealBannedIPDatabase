@@ -10,6 +10,7 @@ namespace SealBannedIPDatabase
     {
         public static string dbname = ConfigurationManager.AppSettings["dbfilename"];
         private static string[] dbstrcontent;
+        private static List<string> recentlyAdded = new List<string>();
         public FileDB()
         {
             dbstrcontent = File.ReadAllLines(dbname);
@@ -23,6 +24,11 @@ namespace SealBannedIPDatabase
         public string[] Entries 
         {
             get { return dbstrcontent; }
+        }
+
+        public List<string> Recent 
+        {
+            get { return recentlyAdded; }
         }
 
         public string writeEntry(string count, string ip) 
@@ -51,6 +57,7 @@ namespace SealBannedIPDatabase
                         List<string> temp = new List<string>(dbstrcontent);
                         temp.Add(new_entry);
                         dbstrcontent = temp.ToArray();
+                        recentlyAdded.Add(new_entry);
 
                     }
                 }
