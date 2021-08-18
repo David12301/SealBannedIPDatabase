@@ -50,6 +50,18 @@ namespace SealBannedIPDatabase
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.txtGenerateURL = new System.Windows.Forms.RichTextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtResultCompare = new System.Windows.Forms.RichTextBox();
+            this.txtCompare2 = new System.Windows.Forms.RichTextBox();
+            this.txtCompare1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,6 +69,7 @@ namespace SealBannedIPDatabase
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAEntriesSave
@@ -81,10 +94,11 @@ namespace SealBannedIPDatabase
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(23, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(774, 454);
+            this.tabControl1.Size = new System.Drawing.Size(774, 577);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -96,7 +110,7 @@ namespace SealBannedIPDatabase
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(766, 426);
+            this.tabPage1.Size = new System.Drawing.Size(766, 549);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Info";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -133,7 +147,7 @@ namespace SealBannedIPDatabase
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(766, 426);
+            this.tabPage2.Size = new System.Drawing.Size(766, 549);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Search";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -233,7 +247,7 @@ namespace SealBannedIPDatabase
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(766, 426);
+            this.tabPage3.Size = new System.Drawing.Size(766, 549);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Recent";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -265,11 +279,130 @@ namespace SealBannedIPDatabase
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button7);
+            this.tabPage4.Controls.Add(this.txtGenerateURL);
+            this.tabPage4.Controls.Add(this.button6);
+            this.tabPage4.Controls.Add(this.label7);
+            this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.label4);
+            this.tabPage4.Controls.Add(this.txtResultCompare);
+            this.tabPage4.Controls.Add(this.txtCompare2);
+            this.tabPage4.Controls.Add(this.txtCompare1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(766, 549);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "TicketTool";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(530, 455);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(226, 23);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "open in chrome";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // txtGenerateURL
+            // 
+            this.txtGenerateURL.Location = new System.Drawing.Point(97, 430);
+            this.txtGenerateURL.Name = "txtGenerateURL";
+            this.txtGenerateURL.Size = new System.Drawing.Size(427, 103);
+            this.txtGenerateURL.TabIndex = 10;
+            this.txtGenerateURL.Text = "";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(530, 426);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(226, 23);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "generate url";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 430);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 15);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Generate URL";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(681, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "check";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(530, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 15);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Result";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(261, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Text from discord";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Text from kayako";
+            // 
+            // txtResultCompare
+            // 
+            this.txtResultCompare.Location = new System.Drawing.Point(530, 46);
+            this.txtResultCompare.Name = "txtResultCompare";
+            this.txtResultCompare.Size = new System.Drawing.Size(233, 377);
+            this.txtResultCompare.TabIndex = 2;
+            this.txtResultCompare.Text = "";
+            // 
+            // txtCompare2
+            // 
+            this.txtCompare2.Location = new System.Drawing.Point(261, 46);
+            this.txtCompare2.Name = "txtCompare2";
+            this.txtCompare2.Size = new System.Drawing.Size(263, 377);
+            this.txtCompare2.TabIndex = 1;
+            this.txtCompare2.Text = "";
+            // 
+            // txtCompare1
+            // 
+            this.txtCompare1.Location = new System.Drawing.Point(3, 46);
+            this.txtCompare1.Name = "txtCompare1";
+            this.txtCompare1.Size = new System.Drawing.Size(252, 377);
+            this.txtCompare1.TabIndex = 0;
+            this.txtCompare1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 478);
+            this.ClientSize = new System.Drawing.Size(809, 598);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Seal Cheater IP Address Database";
@@ -283,6 +416,8 @@ namespace SealBannedIPDatabase
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -310,6 +445,18 @@ namespace SealBannedIPDatabase
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox txtResultCompare;
+        private System.Windows.Forms.RichTextBox txtCompare2;
+        private System.Windows.Forms.RichTextBox txtCompare1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox txtGenerateURL;
+        private System.Windows.Forms.Button button7;
     }
 }
 

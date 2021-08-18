@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using AutoUpdaterDotNET;
+using System.Diagnostics;
+using System.Configuration;
 
 namespace SealBannedIPDatabase
 {
     public partial class Form1 : Form
     {
         private static FileDB _db;
+        private readonly string urlticket = ConfigurationManager.AppSettings["urlticket"];
         public Form1()
         {
             InitializeComponent();
@@ -175,6 +178,92 @@ namespace SealBannedIPDatabase
                 }
                 
             }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string sc1 = txtCompare1.Text;
+            string[] lst1 = sc1.Split(
+                '\n',
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            string sc2 = txtCompare2.Text;
+            string[] lst2 = sc2.Split(
+                '\n',
+                StringSplitOptions.RemoveEmptyEntries
+            );
+
+
+            List<string> different = new List<string>();
+            StringBuilder sb = new StringBuilder();
+            foreach (string n1 in lst1) 
+            {
+                bool isInlst2 = false;
+                foreach (string n2 in lst2) 
+                {
+                    if (n2.Contains(n1)) {
+                        isInlst2 = true;
+                        break;
+                    }
+                }
+
+                bool exists = false;
+                foreach (string d in different)
+                {
+                    if (d.Equals(n1))
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!isInlst2 && !exists)
+                {
+                    different.Add(n1);
+                }
+
+            }
+
+            foreach (string d in different)
+            {
+                sb.Append(d + Environment.NewLine);
+            }
+            txtResultCompare.Text = sb.ToString();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            string n = txtGenerateURL.Text.Trim();
+            string[] nl = n.Split(
+                '\n',
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (string l in nl) {
+                sb.Append(urlticket + l + Environment.NewLine);
+            }
+
+            txtGenerateURL.Text = sb.ToString();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            string n = txtGenerateURL.Text.Trim();
+            string[] nl = n.Split(
+                '\n',
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (string l in nl)
+            {
+                sb.Append(urlticket + l + " ");
+            }
+
+
+            string cmdCommand = "/C start chrome --new-tab " + sb.ToString();
+            System.Diagnostics.Process.Start("CMD.exe", cmdCommand);
 
         }
     }
